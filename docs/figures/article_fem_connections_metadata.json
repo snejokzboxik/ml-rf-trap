@@ -1,0 +1,162 @@
+{
+  "connections": {
+    "in_phase": {
+      "definition": "all four electrodes at the same RF phase",
+      "electrode_potentials_v": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "minima_coordinates_m": [
+        [
+          0.0004041766975772297,
+          0.003959956559870763
+        ],
+        [
+          -0.0035092586544168292,
+          -0.0017096175047608846
+        ],
+        [
+          0.0025945541002691318,
+          -0.0018538843783256322
+        ]
+      ],
+      "minimum_count": 3,
+      "recorded_clean_minima_coordinates_m": [
+        [
+          0.0004041766975772297,
+          0.003959956559870763
+        ],
+        [
+          -0.0035092586544168292,
+          -0.0017096175047608846
+        ],
+        [
+          0.0025945541002691318,
+          -0.0018538843783256322
+        ]
+      ],
+      "relative_free_residual": 1.2010081229948478e-15
+    },
+    "quadrupole": {
+      "definition": "alternating checkerboard in FEM order",
+      "electrode_potentials_v": [
+        1.0,
+        -1.0,
+        -1.0,
+        1.0
+      ],
+      "minima_coordinates_m": [
+        [
+          -8.584937143697127e-05,
+          -0.00014388622165907036
+        ]
+      ],
+      "minimum_count": 1,
+      "relative_free_residual": 7.195842169360078e-16
+    }
+  },
+  "coordinate_units": "metres",
+  "effective_potential_proxy": "Psi = |E|^2 in V^2/m^2",
+  "effective_potential_visualization": {
+    "contour_spacing": "logarithmic with increased density near wells",
+    "in_phase_contour_count": 24,
+    "in_phase_display_percentiles": [
+      0.1,
+      75.0
+    ],
+    "normalization": "logarithmic, using real recovered-field values",
+    "quadrupole_contour_count": 12,
+    "quadrupole_display_percentiles": [
+      0.2,
+      95.0
+    ]
+  },
+  "electric_potential": {
+    "central_region_half_width_m": 0.008,
+    "in_phase_color_limits_v": [
+      0.9965009715009241,
+      0.9979913679836644
+    ],
+    "quadrupole_color_limits_v": [
+      -0.4981289338580628,
+      0.4981289338580628
+    ],
+    "quantity": "FEM scalar potential phi",
+    "units": "V",
+    "visualization_scaling": "restrained central-region contrast: quadrupole uses the 97.5th absolute percentile symmetrically about zero; in-phase uses the 3rd-to-97th percentiles"
+  },
+  "fem_electrode_order": [
+    "F1 upper-left",
+    "F2 upper-right",
+    "F3 lower-left",
+    "F4 lower-right"
+  ],
+  "figure_panels": [
+    "quadrupole FEM mesh",
+    "quadrupole electric potential phi",
+    "quadrupole effective-potential proxy Psi",
+    "in-phase FEM mesh",
+    "in-phase electric potential phi",
+    "in-phase effective-potential proxy Psi"
+  ],
+  "mesh": {
+    "central_mesh_size_m": 0.0005,
+    "node_count": 3996,
+    "triangle_count": 7384
+  },
+  "outputs": [
+    "docs/figures/article_fem_connections.png",
+    "docs/figures/article_fem_connections.pdf",
+    "docs/figures/article_fem_connections.svg"
+  ],
+  "panel_view_half_widths_mm": {
+    "in_phase_effective_potential": 14.0,
+    "in_phase_electric_potential": 14.0,
+    "in_phase_mesh": 14.0,
+    "quadrupole_effective_potential": 14.0,
+    "quadrupole_electric_potential": 14.0,
+    "quadrupole_mesh": 14.0
+  },
+  "selected_row_index": 0,
+  "selected_sample_id": 1,
+  "source_dataset": "merged N=51974 clean ML dataset",
+  "true_displacements_fem_order_m": [
+    [
+      3.1041839536407614e-05,
+      -0.0001233176908558522
+    ],
+    [
+      -0.0002009808922113865,
+      0.00024199758916539115
+    ],
+    [
+      -0.0003935649182198452,
+      -0.00020513135311575918
+    ],
+    [
+      7.528419476727556e-05,
+      -5.273131194385788e-05
+    ]
+  ],
+  "true_displacements_wolfram_order_m": [
+    [
+      0.0002009808922113865,
+      -0.00024199758916539115
+    ],
+    [
+      -7.528419476727556e-05,
+      5.273131194385788e-05
+    ],
+    [
+      -3.1041839536407614e-05,
+      0.0001233176908558522
+    ],
+    [
+      0.0003935649182198452,
+      0.00020513135311575918
+    ]
+  ],
+  "wolfram_to_fem_transform": "[-W3, -W1, -W4, -W2]"
+}

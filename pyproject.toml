@@ -1,0 +1,39 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ml-rf-trap"
+version = "0.12.1"
+description = "Publication-ready RF-trap FEM inverse-model pipeline."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "gmsh>=4.13,<5",
+    "matplotlib>=3.8,<4",
+    "numpy>=1.26,<3",
+    "scikit-fem>=11,<13",
+    "scikit-learn>=1.5,<2",
+    "scipy>=1.13,<2",
+]
+
+[project.scripts]
+rf-trap-reference-dataset = "rf_trap_forward.dataset:main"
+rf-trap-absolute-displacement-check = "rf_trap_forward.absolute_validation:main"
+rf-trap-wolfram-convention-check = "rf_trap_forward.absolute_validation:wolfram_main"
+rf-trap-generate-dataset = "rf_trap_forward.synthetic_dataset:main"
+rf-trap-train-inverse = "rf_trap_forward.inverse_training:main"
+rf-trap-train-inverse-v2 = "rf_trap_forward.inverse_training_v2:main"
+rf-trap-predict-inverse = "rf_trap_forward.predict_inverse:main"
+rf-trap-export-predictions = "rf_trap_forward.export_prediction_dataset:main"
+rf-trap-verify-export-row-fem = "rf_trap_forward.verify_export_row_fem:main"
+
+[project.optional-dependencies]
+test = ["pytest>=8.3,<10"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/rf_trap_forward"]
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+testpaths = ["tests"]
