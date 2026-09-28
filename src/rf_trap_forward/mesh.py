@@ -14,6 +14,16 @@ from .config import MeshConfig
 from .geometry import TrapGeometry
 
 
+# Gmsh's global element-size bounds.  These are bounds only: the central,
+# electrode-boundary, and outer-region target sizes are still supplied
+# independently through the configured size fields below.
+#
+# Note: 1.0e-4 m is 100 micrometres (100 nm would be 1.0e-7 m).  The numeric
+# value is kept explicit here to match the requested Gmsh setting.
+GMSH_MESH_SIZE_MIN_M = 1.0e-4
+GMSH_MESH_SIZE_MAX_M = 1.0e-3
+
+
 @dataclass(frozen=True)
 class TrapMesh:
     """A triangular vacuum-domain mesh with classified Dirichlet nodes."""
@@ -151,16 +161,8 @@ def generate_perforated_disk_mesh(
         gmsh.option.setNumber("Mesh.Algorithm", config.gmsh_algorithm)
         gmsh.option.setNumber("Mesh.ElementOrder", 1)
         gmsh.option.setNumber("Mesh.Reproducible", float(config.reproducible))
-        minimum_size = config.characteristic_length_m
-        maximum_size = config.characteristic_length_m
-        if config.size_field is not None:
-            minimum_size = min(
-                config.size_field.central_mesh_size_m,
-                config.size_field.electrode_boundary_mesh_size_m,
-            )
-            maximum_size = config.size_field.outer_mesh_size_m
-        gmsh.option.setNumber("Mesh.MeshSizeMin", 0.5 * minimum_size)
-        gmsh.option.setNumber("Mesh.MeshSizeMax", maximum_size)
+        gmsh.option.setNumber("Mesh.MeshSizeMin", GMSH_MESH_SIZE_MIN_M)
+        gmsh.option.setNumber("Mesh.MeshSizeMax", GMSH_MESH_SIZE_MAX_M)
         gmsh.option.setNumber("Mesh.RandomFactor", config.random_factor)
         gmsh.option.setNumber("Mesh.RandomSeed", config.random_seed)
         gmsh.model.add(model_name)
