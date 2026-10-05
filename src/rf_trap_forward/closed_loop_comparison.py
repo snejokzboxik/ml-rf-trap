@@ -246,7 +246,7 @@ def _markdown_report(comparison: ClosedLoopComparison) -> str:
         f"- Sample IDs ({len(comparison.selection.sample_ids)}): `{', '.join(map(str, comparison.selection.sample_ids))}`.",
         f"- Selection: {comparison.selection.source}.",
         "- Each model predicts raw Wolfram W1--W4 displacements; FEM receives `-[W3, W1, W4, W2]`.",
-        "- The forward check uses real-scale all-positive electrodes, a fixed grounded outer boundary, robust minima mode, and practical 500 µm central mesh.",
+        "- The forward check uses real-scale all-positive electrodes, a fixed grounded outer boundary, robust minima mode, and practical 100 µm central mesh.",
         "- Recomputed and original minimum sets are compared by Hungarian assignment.",
         "- v2 uses its persisted ±500 µm clipping; its raw pre-clipping excursions are reported separately.", "",
         "## Results", "", *table, "",

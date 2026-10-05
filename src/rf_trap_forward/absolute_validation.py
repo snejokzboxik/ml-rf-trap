@@ -67,7 +67,7 @@ def run_absolute_displacement_check(
     dataset: ReferenceDataset,
     *,
     row_numbers: Sequence[int] = tuple(range(1, 11)),
-    central_mesh_size_m: float = 500.0e-6,
+    central_mesh_size_m: float = 100.0e-6,
 ) -> AbsoluteDisplacementCheck:
     """Run only identity and E1,E3,E2,E4 mappings with robust minima."""
 
@@ -141,7 +141,7 @@ def run_wolfram_convention_check(
     *,
     baseline_directory: str | Path = "validation_results/absolute_displacement_check",
     row_numbers: Sequence[int] = tuple(range(1, 11)),
-    central_mesh_size_m: float = 500.0e-6,
+    central_mesh_size_m: float = 100.0e-6,
 ) -> WolframConventionCheck:
     """Run only the new sign-flipped W3,W1,W4,W2 convention."""
 
@@ -348,7 +348,7 @@ def _markdown_report(check: AbsoluteDisplacementCheck) -> str:
         "electrode center equals its nominal center plus its raw displacement. "
         "Electrode 1 moves; the grounded outer circle remains centered at the origin.",
         "",
-        "The check uses the real-scale all-positive geometry, 500 um local central "
+        "The check uses the real-scale all-positive geometry, 100 um local central "
         "mesh, robust minima mode, rows 1--10, and no geometry, voltage, or output "
         "calibration.",
         "",
@@ -415,7 +415,7 @@ def _wolfram_markdown_report(
         "All four transformed vectors are added to the FEM nominal centers. The "
         "50 mm grounded outer circle remains fixed at the origin. The run uses "
         "the real-scale all-positive geometry, robust minima, rows 1--10, and the "
-        "existing 500 um local central mesh. No calibration or refinement sweep "
+        "existing 100 um local central mesh. No calibration or refinement sweep "
         "was run. Raw-absolute identity and perm1324 rows are reused from the "
         "previous focused check; only the Wolfram convention required new solves.",
         "",

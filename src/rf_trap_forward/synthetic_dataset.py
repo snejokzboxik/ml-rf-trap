@@ -32,7 +32,7 @@ from .real_scale import (
 )
 
 MeshMode = Literal["practical"]
-PRACTICAL_CENTRAL_MESH_SIZE_M = 500.0e-6
+PRACTICAL_CENTRAL_MESH_SIZE_M = 100.0e-6
 DEFAULT_AMBIGUOUS_MINIMUM_DISTANCE_M = 0.15e-3
 
 CLEAN_CSV_COLUMNS = (
@@ -344,7 +344,7 @@ def minimum_pairwise_distance_m(points_m: ArrayLike) -> float:
 
 
 def practical_generator_forward_config(mesh_mode: MeshMode) -> ForwardModelConfig:
-    """Return the named 500 µm real-scale dataset-generation configuration."""
+    """Return the named 100 µm real-scale dataset-generation configuration."""
 
     if mesh_mode != "practical":
         raise ValueError("mesh_mode must be 'practical'")
@@ -1117,7 +1117,7 @@ boundary is 0 V.
 
 Outputs are robust pseudopotential minima in absolute geometric-centre
 coordinates, sorted by polar angle `atan2(y,x)` mapped to `[0,2*pi)`. The
-practical mesh is a 500 µm central refinement with a coarse outer domain.
+practical mesh is a 100 µm central refinement with a coarse outer domain.
 
 ## Split policy
 

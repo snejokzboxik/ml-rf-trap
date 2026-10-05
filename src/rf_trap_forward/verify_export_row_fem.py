@@ -295,7 +295,7 @@ def _write_row_report(
         f"# Export row FEM check: row index {row.row_index}",
         "",
         f"- Sample ID: `{row.sample_id}`",
-        "- FEM configuration: practical synthetic-data configuration (500 µm central mesh)",
+        "- FEM configuration: practical synthetic-data configuration (100 µm central mesh)",
         "- Robust minima mode: yes",
         "- Canonical transform: `FEM = [-W3, -W1, -W4, -W2]`",
         "- Recomputed minima are sorted by `sort_points_by_polar_angle`.",
